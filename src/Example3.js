@@ -7,7 +7,7 @@ export default class App extends Component {
   }
 
   handleChange =(e)=>{
-    this.setState({
+    this.setState({        //dd
       [e.target.name] : e.target.value,
     });
   }
