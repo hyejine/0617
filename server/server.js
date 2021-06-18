@@ -42,8 +42,8 @@ app.post("/idplz", (req,res)=>{
 }); 
 app.post("/callbody", (req,res)=>{
     connection.query(
-        // "SELECT * FROM test",
-    "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'test'",
+        //"SELECT * FROM test",
+     "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'test'",
     function(err,rows,fields){
         if(err){
             console.log("불러오기 실패");
@@ -52,22 +52,19 @@ app.post("/callbody", (req,res)=>{
         }else{
             console.log("불러오기 성공");
             // console.log(rows[1].COLUMN_NAME);
-            // console.log(rows[2]);
+            // res.send(rows[0]);
             // console.log(rows);
 
-            let i;
-            console.log("sad",rows.length);
-            for (i=0; i<rows.length; i++){
-                console.log(rows[i].COLUMN_NAME);
-                res.send(rows[i].COLUMN_NAME);
-
-            }
-
+            // console.log("sad",rows.length);
+            var val = [];
+            
+            res.send(rows);
+            console.log(rows);
+            // res.send(rows[1].COLUMN_NAME);
             
 
             // 왜 홍길동 밖에 안나왔던건지 모르겠음 
             // => json 에서 이름만 가져왔었음 
-            // res.send(rows[2])
             
         }
     })
