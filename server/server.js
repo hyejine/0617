@@ -22,27 +22,9 @@ app.use(cors());
 app.get('/', (req, res) =>{
     res.send(' Hello world')  
 })  
-// 데이터 삽입 
-app.post("/idplz", (req,res)=>{
-    const test = req.body.test;    
-    // body.test 는 어디서 온건지?? 문법 인가 ? => oo
-    // req.body.test;  여기에 데이터를 넣어 보여준다. 
-
-    console.log(req.body);
-    connection.query("INSERT INTO test (이름) values('?')",[test],
-    function(err,rows,fields){
-        if(err){
-            console.log("실패");
-            console.log(err);
-        }else{
-            console.log("성공");
-            console.log(rows);
-        };
-    });
-}); 
-app.post("/callbody", (req,res)=>{
+app.get("/callbody", (req,res)=>{
     connection.query(
-        //"SELECT * FROM test",
+        // "SELECT * FROM test",
      "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'test'",
     function(err,rows,fields){
         if(err){
@@ -51,13 +33,6 @@ app.post("/callbody", (req,res)=>{
             
         }else{
             console.log("불러오기 성공");
-            // console.log(rows[1].COLUMN_NAME);
-            // res.send(rows[0]);
-            // console.log(rows);
-
-            // console.log("sad",rows.length);
-            var val = [];
-            
             res.send(rows);
             console.log(rows);
             // res.send(rows[1].COLUMN_NAME);

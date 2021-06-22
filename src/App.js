@@ -4,7 +4,7 @@ import Example3 from "./Example3";
 function App() {
   return (
     <div>
-      <Example3 />
+      <Example3 ></Example3>
     </div>
   );
 }
