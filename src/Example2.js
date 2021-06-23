@@ -11,20 +11,6 @@ export default class Example2 extends Component {
   }
  
 
-
-
-  // componentDidMount() {
-  //   // user id가 props를 통해 넘어온다고 가정
-  //   const { userId } = this.props;
-
-  //   fetch(`http://localhost:3005/callbody`)
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       if (res.success) {
-  //           console.log("success");
-  //       }
-  //     });
-  // }
   
   onCall =()=>{
     // fetch는 url주소는 우리가 데이터를 보낼 주소
@@ -58,7 +44,7 @@ var ss=[];
       <div>
           <div id = "select">
     
-    x축: <select id="X" onchange="xval(value);">
+    x축: <select id="X" onchange="xval(value);"onClick={this.onCall}>
       <option>{this.state.data[0]}</option>
       <option>{this.state.data[1]}</option>
       <option>{this.state.data[2]}</option>
@@ -67,9 +53,11 @@ var ss=[];
     &nbsp;
     <script>
     </script>
-    y축: <select  id="Y" onchange="yval(value);">
-    </select>
-    C: <select  id="" >
+    y축: <select  id="Y" onchange="yval(value);"onClick={this.onCall}>
+    <option>{this.state.data[0]}</option>
+      <option>{this.state.data[1]}</option>
+      <option>{this.state.data[2]}</option>
+      <option>{this.state.data[3]}</option>
     </select>
 
 </div>  
@@ -79,7 +67,7 @@ var ss=[];
         <h3>{this.state.data[0]}</h3>
    
 
-        <button onClick={this.onCall}>가져오기</button>
+        {/* <button onClick={this.onCall}>가져오기</button> */}
 
 <Chart></Chart>
         

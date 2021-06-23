@@ -24,8 +24,8 @@ app.get('/', (req, res) =>{
 })  
 app.get("/callbody", (req,res)=>{
     connection.query(
-        // "SELECT * FROM test",
-     "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'test'",
+        "SELECT * FROM test",
+    //  "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'test'",
     function(err,rows,fields){
         if(err){
             console.log("불러오기 실패");
