@@ -40,6 +40,7 @@ var ss=[];
      // res로 받은것을 json으로 변환하고 json.text을 this.state.id에 저장한다.
   }; 
   render() {
+    
     return (
       <div>
           <div id = "select">
