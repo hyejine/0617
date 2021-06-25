@@ -43,7 +43,7 @@ var ss=[];
     
     return (
       <div>
-          <div id = "select">
+          {/* <div id = "select">
     
     x축: <select id="X" onchange="xval(value);"onClick={this.onCall}>
       <option>{this.state.data[0]}</option>
@@ -65,7 +65,7 @@ var ss=[];
 
 
         <h2>데이터가져오기</h2>
-        <h3>{this.state.data[0]}</h3>
+        <h3>{this.state.data[0]}</h3> */}
    
 
         {/* <button onClick={this.onCall}>가져오기</button> */}
