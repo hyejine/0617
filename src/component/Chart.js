@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios';
-import { Bar } from 'react-chartjs-2'
+import { Bar,Pie } from 'react-chartjs-2'
 
 
   export default function  Chart(){
@@ -15,8 +15,7 @@ import { Bar } from 'react-chartjs-2'
         //   }
         // ]
     });
-    const [name,setName] = useState([]);
-    const [age,setAge] = useState([]);
+//   const [option, setOption] = useState();
 
     const chart = ()=> {
         let n =[];
@@ -75,29 +74,36 @@ import { Bar } from 'react-chartjs-2'
 
         
 
-const options = {
-    legend: {
-      display: false, // label 보이기 여부
-    },
-    scales: {
-      yAxes: [{
-        ticks: { 
-          min: 0, // y축 스케일에 대한 최소값 설정
-          stepSize: 1, // y축 그리드 한 칸당 수치
-        }
-      }]
-    },
+// const options = {
+//     legend: {
+//       display: false, // label 보이기 여부
+//     },
+//     scales: {
+//       yAxes: [{
+//         ticks: { 
+//           min: 0, // y축 스케일에 대한 최소값 설정
+//           stepSize: 1, // y축 그리드 한 칸당 수치
+//         }
+//       }]
+//     },
    
-    // false : 사용자 정의 크기에 따라 그래프 크기가 결정됨.
-    // true : 크기가 알아서 결정됨.
-    maintainAspectRatio: false 
-  }
+//     // false : 사용자 정의 크기에 따라 그래프 크기가 결정됨.
+//     // true : 크기가 알아서 결정됨.
+//     maintainAspectRatio: false 
+//   }
 }
+
+
 useEffect(()=>{
     chart();
 },[]);
 
-    return (<div style={{width:800}}>
+    return (
+
+
+
+    
+    <div style={{width:800}}>
         <Bar data={chartData} options={{
            responsive:true,
            title: {text:'Thiccness scale', display: true},
@@ -125,7 +131,9 @@ useEffect(()=>{
                     }]
            }
            }} />
+           
     </div>
+
     );
   }
  

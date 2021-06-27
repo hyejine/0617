@@ -8,7 +8,7 @@ export default class App extends Component {
     return (
       <div>
         <Example2></Example2>
-        {/* <E></E> */}
+
       </div>
     )
   }
