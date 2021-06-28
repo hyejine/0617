@@ -1,55 +1,52 @@
-import React, { Component } from 'react'
-import Chart from "./component/Chart";
-// import Select3 from "./component/Select3";
-// import axios from 'axious';
+import React, { useState } from 'react'
+import Bar1 from "./component/Bar1";
+import Pie1 from "./component/Pie1";
+import Line1 from "./component/Line1"
 
-export default class Example2 extends Component {
-  constructor(props){
-    super(props);
-    this.state ={
-      mode:['Bar','Pie','Line']
+export default function Example2() {
+  
+  const [mode, setMode] = useState(['Bar','Pie', 'Line']);
+  const [option, setOption] = useState("");   
+
+  
+
+  const onChange = (a) => {
+    console.log('option', a.target?.value);
+    setOption(a.target?.value);
+  }
+ 
     
-    }
-  
-  }
-
-  chartVaule=(a)=>{
-    console.log(a.target.value);
-
-<Chart></Chart>
-   
-
-  if(a.target.value ===this.state.mode[0]){
-  
-    const value = a.target.value;
-    document.getElementById('result').innerText = value; 
-    console.log("2");
-  } else{
-    document.getElementById('result').style.display ="none";
-  }
-  }
-
-
-  render() {
-   
-    if(this.state.mode==='Bar'){
-
-    }else if(this.state.mode==='Pie'){
-
-    }
     return (
-      
       <div>
-
        
-   Cahrt Type: <select onChange={this.chartVaule}>
-
-<option value="Bar">{this.state.mode[0]} </option>
-<option value="Pie">{this.state.mode[1]}</option>
-<option value="Line" >{this.state.mode[2]}</option>
+<div>
+Cahrt Type: <select id='s1' onChange ={onChange}  >
+<option name = 'Bar' value="Bar" >{mode[0]} </option>
+<option name = 'Bar' value="Pie">{mode[1]}</option>
+<option value="Line" >{mode[2]}</option>
 </select>
-<div id ='result'  class ='result'></div>
+
+</div>
+{/*
+{this.state.mode==='Bar'? <Bar1></Bar1>: (this.state.mode==='Pie'?<Pie1></Pie1>:<Line1></Line1>)}
+</div> */}
+{option === 'Bar' && (
+  <Bar1></Bar1>
+)}
+
+{option === 'Pie' && (
+  <Pie1></Pie1>
+)}
+
+{option === 'Line' && (
+  <Line1></Line1>
+)}
 </div>
     );
   }
-}
+
+
+
+
+
+
